@@ -1,13 +1,18 @@
 const removeFromArray = function (array, ...items) {
-  let indices = items;
-
-  for (let i = 0; i < indices.length; i++) {
-    let index = array.indexOf(indices[i]);
-    if (index !== -1) {
-      array.splice(index, 1);
+  let unique = [];
+  for (let i = 0; i < array.length; i++) {
+    if (!unique.includes(array[i])) {
+      unique.push(array[i]);
     }
   }
-  return array;
+
+  for (let i = 0; i < items.length; i++) {
+    let index = unique.indexOf(items[i]);
+    if (index !== -1) {
+      unique.splice(index, 1);
+    }
+  }
+  return unique;
 };
 
 // Do not edit below this line
