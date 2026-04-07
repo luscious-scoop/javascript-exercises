@@ -1,9 +1,10 @@
 const removeFromArray = function (array, ...items) {
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < items.length; j++) {
-      if (items[j] === array[i]) {
-        array.splice(i, 1);
-      }
+  let indices = items;
+
+  for (let i = 0; i < indices.length; i++) {
+    let index = array.indexOf(indices[i]);
+    if (index !== -1) {
+      array.splice(index, 1);
     }
   }
   return array;
