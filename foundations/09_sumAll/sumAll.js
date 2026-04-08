@@ -1,6 +1,15 @@
 const sumAll = function (...args) {
-  let min = Math.min(...args);
-  let max = Math.max(...args);
+  let newArray = [...args];
+  let min = null;
+  let max = null;
+  if (newArray[0] > newArray[1]) {
+    max = newArray[0];
+    min = newArray[1];
+  } else {
+    max = newArray[1];
+    min = newArray[0];
+  }
+
   let sum = 0;
   if (
     min < 0 ||
