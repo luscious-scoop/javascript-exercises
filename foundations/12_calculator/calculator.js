@@ -21,7 +21,16 @@ const power = function (base, power) {
   return Math.pow(base, power);
 };
 
-const factorial = function () {};
+const factorial = function (num) {
+  if (num === 0 || num === 1) {
+    return 1;
+  }
+  let result = 1;
+  for (let i = num; i > 1; i--) {
+    result *= i;
+  }
+  return result;
+};
 
 // Do not edit below this line
 module.exports = {
