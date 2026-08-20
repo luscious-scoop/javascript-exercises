@@ -1,14 +1,14 @@
 const contains = function (object, value) {
-	if (object) {
-		if (Object.values(object).includes(value)) {
-			return true;
-		}
+	if (Object.values(object).includes(value)) {
+		return true;
 	}
+
 	let isValue;
 	for (let key in object) {
 		if (
 			typeof object[key] === 'object' &&
-			!Array.isArray(object[key] && !object[key])
+			!Array.isArray(object[key]) &&
+			object[key] !== null
 		) {
 			isValue = contains(object[key], value);
 			if (isValue) {
