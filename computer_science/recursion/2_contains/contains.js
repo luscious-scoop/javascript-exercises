@@ -20,28 +20,5 @@ const contains = function (object, value) {
 	return false;
 };
 
-const meaningOfLifeArray = [42];
-const object = {
-	data: {
-		duplicate: 'e',
-		stuff: {
-			thing: {
-				banana: NaN,
-				moreStuff: {
-					something: 'foo',
-					answer: meaningOfLifeArray,
-				},
-			},
-		},
-		info: {
-			duplicate: 'e',
-			magicNumber: 44,
-			empty: null,
-		},
-	},
-};
-
-console.log(contains(object, 'bar'));
-
 // Do not edit below this line
 module.exports = contains;
