@@ -1,22 +1,23 @@
-const contains = function (object, value, doesContain = false) {
-	let mainObject = object;
-	if (Object.values(object).includes(value)) {
-		doesContain = true;
-		return doesContain;
-	} else {
-		doesContain = false;
+const contains = function (object, value) {
+	if (object) {
+		if (Object.values(object).includes(value)) {
+			return true;
+		}
 	}
-
+	let isValue;
 	for (let key in object) {
-		if (typeof object[key] === 'object' && !Array.isArray(object[key])) {
-			let temp = contains(object[key], value, doesContain);
-			if (temp) {
+		if (
+			typeof object[key] === 'object' &&
+			!Array.isArray(object[key] && !object[key])
+		) {
+			isValue = contains(object[key], value);
+			if (isValue) {
 				return true;
 			}
 		}
 	}
 
-	return doesContain;
+	return false;
 };
 
 const meaningOfLifeArray = [42];
@@ -40,7 +41,7 @@ const object = {
 	},
 };
 
-console.log(contains(object, NaN));
+console.log(contains(object, 'bar'));
 
 // Do not edit below this line
-// module.exports = contains;
+module.exports = contains;
