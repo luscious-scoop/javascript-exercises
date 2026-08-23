@@ -8,9 +8,10 @@ const fac = function (n) {
 
 const permutations = function (
 	array,
-	value = 0,
+	firstValue = 0,
 	permutation = null,
 	newArr = [],
+	secondValue = 1,
 ) {
 	if (!permutation && permutation !== 0) {
 		permutation = fac(array.length);
@@ -21,20 +22,32 @@ const permutations = function (
 
 	if (!newArr.includes([...array])) {
 		newArr.push([...array]);
-		if (value + 1 >= array.length) {
-			value = 0;
+
+		if (secondValue >= array.length) {
+			secondValue = secondValue % array.length;
 		}
-		[array[value], array[value + 1]] = [array[value + 1], array[value]];
+
+		[array[firstValue], array[secondValue]] = [
+			array[secondValue],
+			array[firstValue],
+		];
+		firstValue = secondValue;
 	}
 
-	return permutations(array, value + 1, permutation - 1, newArr);
+	return permutations(
+		array,
+		firstValue,
+		permutation - 1,
+		newArr,
+		secondValue + 1,
+	);
 };
 
 //    [1,2]=[[1,2], [2,1]]=
 
 // [1,2,3]= [[1,2,3] , [2,1,3], [3,1,2]. [1,3,2], [2,3,1], [3,2,1]]
 
-console.log(permutations([1, 2, 3, 4]));
+console.log(permutations([1, 2, 3]));
 
 // Do not edit below this line
 module.exports = permutations;
