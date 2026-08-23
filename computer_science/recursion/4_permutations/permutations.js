@@ -43,7 +43,7 @@ const permutations = function (
 
 // [1,2,3]= [[1,2,3] , [2,1,3], [3,1,2]. [1,3,2], [2,3,1], [3,2,1]]
 
-console.log(permutations([1, 2, 3]));
+console.log(permutations([]));
 
 function doesContainTheArray(array, array2) {
 	if (array2.length === 0) {
@@ -68,4 +68,4 @@ function doesContainTheArray(array, array2) {
 }
 
 // Do not edit below this line
-// module.exports = permutations;
+module.exports = permutations;
