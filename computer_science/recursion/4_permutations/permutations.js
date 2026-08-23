@@ -53,10 +53,11 @@ function doesContainTheArray(array, array2) {
 	let doesContain = false;
 	for (let i = 0; i < array2.length; i++) {
 		for (let j = 0; j < array2[i].length; j++) {
-			if (array[j] !== array2[i][j]) {
-				doesContain = false;
-			} else {
+			if (array[j] === array2[i][j]) {
 				doesContain = true;
+			} else {
+				doesContain = false;
+				break;
 			}
 		}
 		if (doesContain) {
@@ -64,14 +65,17 @@ function doesContainTheArray(array, array2) {
 		}
 	}
 
-	return true;
+	return doesContain;
 }
 
 let array = [1, 2, 3];
 
 let array2 = [
+	[3, 3, 3],
 	[1, 4, 3],
 	[9, 5, 6],
+	[0, 0, 0],
+	[4, 5, 3],
 	[1, 2, 3],
 ];
 
