@@ -6,6 +6,28 @@ const fac = function (n) {
 	return n * fac(n - 1);
 };
 
+const doesContainTheArray = function (array, array2) {
+	if (array2.length === 0) {
+		return false;
+	}
+	let doesContain = false;
+	for (let i = 0; i < array2.length; i++) {
+		for (let j = 0; j < array2[i].length; j++) {
+			if (array[j] === array2[i][j]) {
+				doesContain = true;
+			} else {
+				doesContain = false;
+				break;
+			}
+		}
+		if (doesContain) {
+			return doesContain;
+		}
+	}
+
+	return doesContain;
+};
+
 const permutations = function (
 	array,
 	firstValue = 0,
@@ -38,34 +60,6 @@ const permutations = function (
 
 	return permutations(array, firstValue, permutation, newArr, secondValue + 1);
 };
-
-//    [1,2]=[[1,2], [2,1]]=
-
-// [1,2,3]= [[1,2,3] , [2,1,3], [3,1,2]. [1,3,2], [2,3,1], [3,2,1]]
-
-console.log(permutations([]));
-
-function doesContainTheArray(array, array2) {
-	if (array2.length === 0) {
-		return false;
-	}
-	let doesContain = false;
-	for (let i = 0; i < array2.length; i++) {
-		for (let j = 0; j < array2[i].length; j++) {
-			if (array[j] === array2[i][j]) {
-				doesContain = true;
-			} else {
-				doesContain = false;
-				break;
-			}
-		}
-		if (doesContain) {
-			return doesContain;
-		}
-	}
-
-	return doesContain;
-}
 
 // Do not edit below this line
 module.exports = permutations;
