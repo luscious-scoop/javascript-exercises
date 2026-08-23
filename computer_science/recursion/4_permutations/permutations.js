@@ -68,18 +68,5 @@ function doesContainTheArray(array, array2) {
 	return doesContain;
 }
 
-let array = [1, 2, 3];
-
-let array2 = [
-	[3, 3, 3],
-	[1, 4, 3],
-	[9, 5, 6],
-	[0, 0, 0],
-	[4, 5, 3],
-	[1, 2, 3],
-];
-
-console.log(doesContainTheArray(array, array2));
-
 // Do not edit below this line
 // module.exports = permutations;
