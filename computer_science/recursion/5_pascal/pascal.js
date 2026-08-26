@@ -1,8 +1,8 @@
-const pascal = function (n, oldRow = [1]) {
+const pascal = function (n) {
 	if (n === 1) {
-		return oldRow;
+		return [1];
 	}
-
+	let oldRow = pascal(n - 1);
 	let newRow = [];
 
 	let value = 0;
@@ -17,7 +17,7 @@ const pascal = function (n, oldRow = [1]) {
 		}
 	}
 
-	return pascal(n - 1, newRow);
+	return newRow;
 };
 
 // [1]= [1,1]
