@@ -8,7 +8,7 @@ const pascal = function (n) {
 	let value = 0;
 
 	for (let i = 0; i < oldRow.length; i++) {
-		value = oldRow[i - 1] !== undefined ? oldRow[i - 1] : 0;
+		value = oldRow[i - 1] ?? 0;
 
 		newRow.push(oldRow[i] + value);
 
