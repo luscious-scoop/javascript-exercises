@@ -20,8 +20,6 @@ const pascal = function (n) {
 	return newRow;
 };
 
-// [1]= [1,1]
-
 console.log(pascal(3));
 
 // Do not edit below this line
