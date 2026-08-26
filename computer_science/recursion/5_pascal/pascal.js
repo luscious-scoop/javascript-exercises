@@ -1,29 +1,28 @@
-const pascal = function (
-	n,
-	results = [1],
-	sampleArray = [0, 1, 0],
-	index = 0,
-	secondIndex = 1,
-) {
+const pascal = function (n, oldRow = [1]) {
 	if (n === 1) {
-		return results;
+		return oldRow;
 	}
 
-	let valueToAdd = sampleArray[index] + sampleArray[secondIndex];
-	results.splice(secondIndex, 0, valueToAdd);
+	let newRow = [];
 
-	sampleArray = [...results];
-	let temp = index;
-	index = secondIndex;
-	secondIndex = temp;
-	results.splice(secondIndex, 1, valueToAdd);
+	let value = 0;
 
-	return pascal(n - 1, results, sampleArray, index, secondIndex + 1);
+	for (let i = 0; i < oldRow.length; i++) {
+		value = oldRow[i - 1] !== undefined ? oldRow[i - 1] : 0;
+
+		newRow.push(oldRow[i] + value);
+
+		if (i === oldRow.length - 1) {
+			newRow.push(oldRow[i]);
+		}
+	}
+
+	return pascal(n - 1, newRow);
 };
 
 // [1]= [1,1]
 
-console.log(pascal(5));
+console.log(pascal(3));
 
 // Do not edit below this line
 module.exports = pascal;
